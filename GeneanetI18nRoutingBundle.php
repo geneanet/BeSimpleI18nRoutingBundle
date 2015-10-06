@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class GeneanetI18nRoutingBundle extends Bundle
 {
-    const VERSION = '2.4.0-DEV';
+    const VERSION = '2.3.2-DEV';
 
     public function build(ContainerBuilder $container)
     {

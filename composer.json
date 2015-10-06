@@ -23,10 +23,6 @@
             "homepage": "https://github.com/BeSimple/BeSimpleI18nRoutingBundle/contributors"
         },
         {
-            "name": "Kheir-Eddine Mahmoudi",
-            "homepage": "https://github.com/kemahmoudi"
-        },
-        {
             "name": "Alan Poulain",
             "homepage": "https://github.com/alanpoulain"
         },
@@ -50,7 +46,7 @@
     "target-dir": "Geneanet/I18nRoutingBundle",
     "extra": {
         "branch-alias": {
-            "dev-master": "2.4-dev"
+            "dev-master": "2.3-dev"
         }
     }
 }
