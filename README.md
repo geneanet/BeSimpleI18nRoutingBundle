@@ -49,9 +49,44 @@ routing file by using the ``geneanet_i18n`` type:
 my_yaml_i18n_routes:
     resource: "@MyWebsiteBundle/Resources/config/routing/i18n.yml"
     type: geneanet_i18n
-my_xml_i18n_routes:
-    resource: "@MyWebsiteBundle/Resources/config/routing/i18n.xml"
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing
+        http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <import resource="@MyWebsiteBundle/Resources/config/routing/i18n.xml" type="geneanet_i18n" />
+</routes>
+```
+
+### You can add an internationalized prefix to your routes
+
+```yaml
+my_yaml_i18n_routes:
+    resource: "@MyWebsiteBundle/Resources/config/routing/i18n.yml"
     type: geneanet_i18n
+    prefix:
+        en: /help
+        fr: /aide
+        de: /hilfe
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing
+        http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <import resource="@MyWebsiteBundle/Resources/config/routing/i18n.xml" type="geneanet_i18n">
+        <prefix locale="en">/help</prefix>
+        <prefix locale="fr">/aide</prefix>
+        <prefix locale="de">/hilfe</prefix>
+    </import>
+</routes>
 ```
 
 ### Yaml routing file
