@@ -1,8 +1,8 @@
 <?php
 
-namespace BeSimple\I18nRoutingBundle\Tests\Routing;
+namespace Geneanet\I18nRoutingBundle\Tests\Routing;
 
-use BeSimple\I18nRoutingBundle\Routing\Router;
+use Geneanet\I18nRoutingBundle\Routing\Router;
 
 class RouterTest extends \PHPUnit_Framework_TestCase
 {
@@ -41,7 +41,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
             ->with($this->equalTo('/foo/beberlei'))
             ->will($this->returnValue(array('_route' => 'test.en', '_locale' => 'en', '_translate' => 'name', 'name' => 'beberlei')))
         ;
-        $translator = $this->getMock('BeSimple\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface');
+        $translator = $this->getMock('Geneanet\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface');
         $translator
             ->expects($this->once())
             ->method('translate')
@@ -87,7 +87,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
             ->method('generate')
             ->with($this->equalTo('test_route.en'), $this->equalTo(array('foo' => 'baz')), $this->equalTo(false))
         ;
-        $translator = $this->getMock('BeSimple\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface');
+        $translator = $this->getMock('Geneanet\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface');
         $translator
             ->expects($this->once())
             ->method('reverseTranslate')
@@ -114,7 +114,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
             ->method('generate')
             ->with($this->equalTo('test_route.fr'), $this->equalTo(array('foo' => 'baz')), $this->equalTo(false))
         ;
-        $translator = $this->getMock('BeSimple\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface');
+        $translator = $this->getMock('Geneanet\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface');
         $translator
             ->expects($this->once())
             ->method('reverseTranslate')

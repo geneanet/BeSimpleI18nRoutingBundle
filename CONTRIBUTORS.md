@@ -3,3 +3,5 @@
 * [Benjamin Eberlei](https://github.com/beberlei)
 * [Andrej Hudec] (https://github.com/pulzarraider)
 * [Fabien Pomerol] (https://github.com/fabienpomerol)
+* [Kheir-Eddine Mahmoudi] (https://github.com/kemahmoudi)
+* [Alan Poulain] (https://github.com/alanpoulain)

@@ -1,7 +1,8 @@
 <?php
-namespace BeSimple\I18nRoutingBundle\Routing;
 
-use BeSimple\I18nRoutingBundle\Routing\Exception\MissingRouteLocaleException;
+namespace Geneanet\I18nRoutingBundle\Routing;
+
+use Geneanet\I18nRoutingBundle\Routing\Exception\MissingRouteLocaleException;
 use Symfony\Component\Routing\RouteCollection;
 
 /**

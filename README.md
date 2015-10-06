@@ -6,7 +6,7 @@ for different languages. Additionally it allows to translate given routing param
 between languages in Router#match and UrlGenerator#generate using either a Symfony Translator
 or a Doctrine DBAL (+Cache) based backend.
 
-[![Build Status](https://secure.travis-ci.org/BeSimple/BeSimpleI18nRoutingBundle.png?branch=master)](http://travis-ci.org/BeSimple/BeSimpleI18nRoutingBundle)
+[![Build Status](https://secure.travis-ci.org/geneanet/I18nRoutingBundle.png?branch=master)](http://travis-ci.org/geneanet/I18nRoutingBundle)
 
 ## Information
 
@@ -18,7 +18,7 @@ When you create an I18N route and you go on it with your browser, the locale wil
 //composer.json
 "require": {
     //...
-    "besimple/i18n-routing-bundle": "dev-master"
+    "geneanet/i18n-routing-bundle": "dev-master"
 }
 ```
 
@@ -28,7 +28,7 @@ public function registerBundles()
 {
     $bundles = array(
         //...
-        new BeSimple\I18nRoutingBundle\BeSimpleI18nRoutingBundle(),
+        new Geneanet\I18nRoutingBundle\GeneanetI18nRoutingBundle(),
     );
 }
 ```
@@ -37,21 +37,21 @@ public function registerBundles()
 
 ```yaml
 # app/config/config.yml
-be_simple_i18n_routing: ~
+geneanet_i18n_routing: ~
 ```
 
 ## Create your routing
 
 To define internationalized routes in XML or YAML, you need to import the
-routing file by using the ``be_simple_i18n`` type:
+routing file by using the ``geneanet_i18n`` type:
 
 ```yaml
 my_yaml_i18n_routes:
     resource: "@MyWebsiteBundle/Resources/config/routing/i18n.yml"
-    type: be_simple_i18n
+    type: geneanet_i18n
 my_xml_i18n_routes:
     resource: "@MyWebsiteBundle/Resources/config/routing/i18n.xml"
-    type: be_simple_i18n
+    type: geneanet_i18n
 ```
 
 ### Yaml routing file
@@ -66,9 +66,9 @@ homepage:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<routes xmlns="http://besim.pl/schema/i18n_routing"
+<routes xmlns="http://geneanet.org/schema/i18n_routing"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://besim.pl/schema/i18n_routing http://besim.pl/schema/i18n_routing/routing-1.0.xsd">
+    xsi:schemaLocation="http://geneanet.org/schema/i18n_routing http://geneanet.org/schema/i18n_routing/routing-1.0.xsd">
 
     <route id="homepage">
         <locale key="en">/welcome</locale>
@@ -80,14 +80,14 @@ homepage:
 ```
 
 Note that the XML file uses a different namespace than when using the core
-loader: ``http://besim.pl/schema/i18n_routing``.
+loader: ``http://geneanet.org/schema/i18n_routing``.
 
 ### PHP routing file
 
 ```php
 <?php
 
-use BeSimple\I18nRoutingBundle\Routing\I18nRoute;
+use Geneanet\I18nRoutingBundle\Routing\I18nRoute;
 use Symfony\Component\Routing\RouteCollection;
 
 $collection = new RouteCollection();
@@ -119,9 +119,9 @@ welcome:
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<routes xmlns="http://besim.pl/schema/i18n_routing"
+<routes xmlns="http://geneanet.org/schema/i18n_routing"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://besim.pl/schema/i18n_routing http://besim.pl/schema/i18n_routing/routing-1.0.xsd">
+    xsi:schemaLocation="http://geneanet.org/schema/i18n_routing http://geneanet.org/schema/i18n_routing/routing-1.0.xsd">
 
     <route id="hello" pattern="/hello/{name}">
         <default key="_controller">HelloBundle:Hello:index</default>
@@ -140,7 +140,7 @@ welcome:
 ```php
 <?php
 
-use BeSimple\I18nRoutingBundle\Routing\I18nRoute;
+use Geneanet\I18nRoutingBundle\Routing\I18nRoute;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 $collection = new RouteCollection();
@@ -228,7 +228,7 @@ Configure the use of the DBAL backend
 
 ```yaml
 # app/config/config.yml
-be_simple_i18n_routing:
+geneanet_i18n_routing:
     attribute_translator:
         type: doctrine_dbal
         connection: default # Doctrine DBAL connection name. Using null (default value) will use the default connection
@@ -271,7 +271,7 @@ The translation domain will be created using the pattern `<route name>_<attribut
 
 ```yaml
 # app/config/config.yml
-be_simple_i18n_routing:
+geneanet_i18n_routing:
     attribute_translator:
         type: translator
 ```
@@ -279,11 +279,11 @@ be_simple_i18n_routing:
 ### Custom backend
 
 If you want to use a different implementation, simply create a service implementing
-`BeSimple\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface`.
+`Geneanet\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface`.
 
 ```yaml
 # app/config/config.yml
-be_simple_i18n_routing:
+geneanet_i18n_routing:
     attribute_translator:
         type: service
         id: my_attribute_translator

@@ -1,6 +1,6 @@
 <?php
 
-namespace BeSimple\I18nRoutingBundle\Routing;
+namespace Geneanet\I18nRoutingBundle\Routing;
 
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;

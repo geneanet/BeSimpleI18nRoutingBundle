@@ -1,10 +1,10 @@
 <?php
 
-namespace BeSimple\I18nRoutingBundle\Routing;
+namespace Geneanet\I18nRoutingBundle\Routing;
 
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
-use BeSimple\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface;
+use Geneanet\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\Exception\MissingMandatoryParametersException;
 use Symfony\Component\Routing\RequestContext;

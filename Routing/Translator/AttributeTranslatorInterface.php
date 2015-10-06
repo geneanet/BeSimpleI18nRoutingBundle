@@ -1,6 +1,6 @@
 <?php
 
-namespace BeSimple\I18nRoutingBundle\Routing\Translator;
+namespace Geneanet\I18nRoutingBundle\Routing\Translator;
 
 /**
  * Translate attributes of routes using a service, for example a database.

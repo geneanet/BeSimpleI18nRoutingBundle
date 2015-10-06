@@ -1,5 +1,6 @@
 <?php
-namespace BeSimple\I18nRoutingBundle\Routing\Exception;
+
+namespace Geneanet\I18nRoutingBundle\Routing\Exception;
 
 /**
  * ExceptionInterface

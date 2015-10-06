@@ -1,8 +1,9 @@
 <?php
-namespace BeSimple\I18nRoutingBundle\Routing\Loader;
 
-use BeSimple\I18nRoutingBundle\Routing\I18nRouteCollection;
-use BeSimple\I18nRoutingBundle\Routing\I18nRouteCollectionBuilder;
+namespace Geneanet\I18nRoutingBundle\Routing\Loader;
+
+use Geneanet\I18nRoutingBundle\Routing\I18nRouteCollection;
+use Geneanet\I18nRoutingBundle\Routing\I18nRouteCollectionBuilder;
 use Symfony\Component\Config\FileLocatorInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\Routing\Loader\XmlFileLoader as BaseXmlFileLoader;
@@ -19,7 +20,7 @@ use Symfony\Component\Config\Util\XmlUtils;
  */
 class XmlFileLoader extends BaseXmlFileLoader
 {
-    const NAMESPACE_URI = 'http://besim.pl/schema/i18n_routing';
+    const NAMESPACE_URI = 'http://geneanet.org/schema/i18n_routing';
 
     /**
      * @var I18nRouteCollectionBuilder
@@ -86,7 +87,7 @@ class XmlFileLoader extends BaseXmlFileLoader
      */
     public function supports($resource, $type = null)
     {
-        return is_string($resource) && 'be_simple_i18n' === $type && 'xml' === pathinfo($resource, PATHINFO_EXTENSION);
+        return is_string($resource) && 'geneanet_i18n' === $type && 'xml' === pathinfo($resource, PATHINFO_EXTENSION);
     }
 
     /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace BeSimple\I18nRoutingBundle\Tests\Routing\Loader;
+namespace Geneanet\I18nRoutingBundle\Tests\Routing\Loader;
 
-use BeSimple\I18nRoutingBundle\Routing\Loader\XmlFileLoader;
+use Geneanet\I18nRoutingBundle\Routing\Loader\XmlFileLoader;
 use Symfony\Component\Config\FileLocator;
 
 /**
@@ -56,6 +56,6 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
     {
         $loader = new XmlFileLoader(new FileLocator(array(__DIR__.'/../../Fixtures')));
 
-        return $loader->load($file, 'be_simple_i18n');
+        return $loader->load($file, 'geneanet_i18n');
     }
 }

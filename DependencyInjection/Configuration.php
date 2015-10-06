@@ -1,6 +1,6 @@
 <?php
 
-namespace BeSimple\I18nRoutingBundle\DependencyInjection;
+namespace Geneanet\I18nRoutingBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('be_simple_i18n_routing');
+        $rootNode = $treeBuilder->root('geneanet_i18n_routing');
 
         $rootNode
             ->children()

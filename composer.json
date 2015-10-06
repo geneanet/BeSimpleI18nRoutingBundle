@@ -1,9 +1,9 @@
 {
-    "name": "besimple/i18n-routing-bundle",
+    "name": "geneanet/i18n-routing-bundle",
     "type": "symfony-bundle",
     "description": "Full routing internationalized on your Symfony2 project ",
-    "keywords": ["routing", "internationalisation", "Symfony2", "BeSimpleI18nRoutingBundle"],
-    "homepage": "https://github.com/BeSimple/BeSimpleI18nRoutingBundle",
+    "keywords": ["routing", "internationalisation", "Symfony2", "I18nRoutingBundle", "Geneanet"],
+    "homepage": "https://github.com/geneanet/I18nRoutingBundle",
     "license": "MIT",
     "authors": [
         {
@@ -21,11 +21,22 @@
         {
             "name": "BeSimple Community",
             "homepage": "https://github.com/BeSimple/BeSimpleI18nRoutingBundle/contributors"
+        },
+        {
+            "name": "Kheir-Eddine Mahmoudi",
+            "homepage": "https://github.com/kemahmoudi"
+        },
+        {
+            "name": "Alan Poulain",
+            "homepage": "https://github.com/alanpoulain"
+        },
+        {
+            "name": "Geneanet",
+            "homepage": "http://www.geneanet.org"
         }
     ],
     "require": {
-        "php": ">=5.3.2",
-        "symfony/framework-bundle": "~2.2"
+        "symfony/framework-bundle": "~2.6"
     },
     "require-dev": {
         "doctrine/dbal": "~2.0"
@@ -34,12 +45,12 @@
         "doctrine/dbal": "~2.0"
     },
     "autoload": {
-        "psr-0": { "BeSimple\\I18nRoutingBundle": "" }
+        "psr-0": { "Geneanet\\I18nRoutingBundle": "" }
     },
-    "target-dir": "BeSimple/I18nRoutingBundle",
+    "target-dir": "Geneanet/I18nRoutingBundle",
     "extra": {
         "branch-alias": {
-            "dev-master": "2.3-dev"
+            "dev-master": "2.4-dev"
         }
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace BeSimple\I18nRoutingBundle\Tests\Routing\Loader;
+namespace Geneanet\I18nRoutingBundle\Tests\Routing\Loader;
 
-use BeSimple\I18nRoutingBundle\Routing\Loader\YamlFileLoader;
+use Geneanet\I18nRoutingBundle\Routing\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
 
 /**
@@ -14,12 +14,12 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
     {
         $loader = $this->getYamlFileLoader();
 
-        $this->assertTrue($loader->supports('foo.yml', 'be_simple_i18n'));
-        $this->assertTrue($loader->supports('foo.bar.yml', 'be_simple_i18n'));
+        $this->assertTrue($loader->supports('foo.yml', 'geneanet_i18n'));
+        $this->assertTrue($loader->supports('foo.bar.yml', 'geneanet_i18n'));
 
         $this->assertFalse($loader->supports('foo.yml'));
         $this->assertFalse($loader->supports('foo.yml', 'yaml'));
-        $this->assertFalse($loader->supports('foo.xml', 'be_simple_i18n'));
+        $this->assertFalse($loader->supports('foo.xml', 'geneanet_i18n'));
     }
 
     /**
@@ -101,7 +101,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
     {
         return $this
             ->getYamlFileLoader()
-            ->load($file, 'be_simple_i18n')
+            ->load($file, 'geneanet_i18n')
         ;
     }
 

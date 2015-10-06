@@ -1,8 +1,8 @@
 <?php
 
-namespace BeSimple\I18nRoutingBundle\Tests\Routing;
+namespace Geneanet\I18nRoutingBundle\Tests\Routing;
 
-use BeSimple\I18nRoutingBundle\Routing\I18nRouteCollectionBuilder;
+use Geneanet\I18nRoutingBundle\Routing\I18nRouteCollectionBuilder;
 
 /**
  * @author Francis Besset <francis.besset@gmail.com>

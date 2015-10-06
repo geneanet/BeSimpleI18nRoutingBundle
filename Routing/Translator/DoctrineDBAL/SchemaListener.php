@@ -1,6 +1,6 @@
 <?php
 
-namespace BeSimple\I18nRoutingBundle\Routing\Translator\DoctrineDBAL;
+namespace Geneanet\I18nRoutingBundle\Routing\Translator\DoctrineDBAL;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\ORM\Tools\Event\GenerateSchemaEventArgs;

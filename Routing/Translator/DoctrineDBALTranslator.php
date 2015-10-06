@@ -1,6 +1,6 @@
 <?php
 
-namespace BeSimple\I18nRoutingBundle\Routing\Translator;
+namespace Geneanet\I18nRoutingBundle\Routing\Translator;
 
 use Doctrine\Common\Cache\Cache;
 use Doctrine\DBAL\Connection;
@@ -53,7 +53,7 @@ class DoctrineDBALTranslator implements AttributeTranslatorInterface
     {
         // values can potentially be large, so we hash them and prevent collisions
         $hashKey          = $route . "__" . $locale . "__" . $attribute . "__" . $value;
-        $cacheKey         = "besimplei18nroute__" . sha1($hashKey);
+        $cacheKey         = "geneaneti18nroute__" . sha1($hashKey);
         $translatedValues = $this->cache->fetch($cacheKey);
         if ($translatedValues && isset($translatedValues[$hashKey])) {
             return $translatedValues[$hashKey];
@@ -75,7 +75,7 @@ class DoctrineDBALTranslator implements AttributeTranslatorInterface
      * Reverse Translate a value into its current locale.
      *
      * This feature can optionally be used when generating route urls by passing
-     * the "translate" parameter to RouterInterface::generate() 
+     * the "translate" parameter to RouterInterface::generate()
      * specifying which attributes should be translated.
      *
      * @param string $route
@@ -88,7 +88,7 @@ class DoctrineDBALTranslator implements AttributeTranslatorInterface
     {
         // values can potentially be large, so we hash them and prevent collisions
         $hashKey  = $route . "__" . $locale . "__" . $attribute . "__" . $value;
-        $cacheKey = "besimplei18nroute__reverse__" . sha1($hashKey);
+        $cacheKey = "geneaneti18nroute__reverse__" . sha1($hashKey);
         $reverseTranslatedValues = $this->cache->fetch($cacheKey);
         if ($reverseTranslatedValues && isset($reverseTranslatedValues[$hashKey])) {
             return $reverseTranslatedValues[$hashKey];
@@ -129,7 +129,7 @@ class DoctrineDBALTranslator implements AttributeTranslatorInterface
         // prime the cache!
         if ($this->primeCache) {
             $hashKey  = $route . "__" . $locale . "__" . $attribute . "__" . $localizedValue;
-            $cacheKey = "besimplei18nroute__" . sha1($hashKey);
+            $cacheKey = "geneaneti18nroute__" . sha1($hashKey);
             $translatedValues = $this->cache->fetch($cacheKey);
             if (!$translatedValues) {
                 $translatedValues = array();

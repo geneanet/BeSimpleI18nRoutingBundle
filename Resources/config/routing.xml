@@ -5,30 +5,30 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="be_simple_i18n_routing.router.class">BeSimple\I18nRoutingBundle\Routing\Router</parameter>
-        <parameter key="be_simple_i18n_routing.loader.xml.class">BeSimple\I18nRoutingBundle\Routing\Loader\XmlFileLoader</parameter>
-        <parameter key="be_simple_i18n_routing.loader.yaml.class">BeSimple\I18nRoutingBundle\Routing\Loader\YamlFileLoader</parameter>
-        <parameter key="be_simple_i18n_routing.translator.translation.class">BeSimple\I18nRoutingBundle\Routing\Translator\TranslationTranslator</parameter>
+        <parameter key="geneanet_i18n_routing.router.class">Geneanet\I18nRoutingBundle\Routing\Router</parameter>
+        <parameter key="geneanet_i18n_routing.loader.xml.class">Geneanet\I18nRoutingBundle\Routing\Loader\XmlFileLoader</parameter>
+        <parameter key="geneanet_i18n_routing.loader.yaml.class">Geneanet\I18nRoutingBundle\Routing\Loader\YamlFileLoader</parameter>
+        <parameter key="geneanet_i18n_routing.translator.translation.class">Geneanet\I18nRoutingBundle\Routing\Translator\TranslationTranslator</parameter>
     </parameters>
 
     <services>
-        <service id="be_simple_i18n_routing.router" class="%be_simple_i18n_routing.router.class%">
-            <argument type="service" id="be_simple_i18n_routing.router.parent" />
-            <argument type="service" id="be_simple_i18n_routing.translator" on-invalid="null" />
+        <service id="geneanet_i18n_routing.router" class="%geneanet_i18n_routing.router.class%">
+            <argument type="service" id="geneanet_i18n_routing.router.parent" />
+            <argument type="service" id="geneanet_i18n_routing.translator" on-invalid="null" />
             <argument>%locale%</argument>
         </service>
 
-        <service id="be_simple_i18n_routing.loader.xml" class="%be_simple_i18n_routing.loader.xml.class%" public="false">
+        <service id="geneanet_i18n_routing.loader.xml" class="%geneanet_i18n_routing.loader.xml.class%" public="false">
             <tag name="routing.loader" />
             <argument type="service" id="file_locator" />
         </service>
 
-        <service id="be_simple_i18n_routing.loader.yaml" class="%be_simple_i18n_routing.loader.yaml.class%" public="false">
+        <service id="geneanet_i18n_routing.loader.yaml" class="%geneanet_i18n_routing.loader.yaml.class%" public="false">
             <tag name="routing.loader" />
             <argument type="service" id="file_locator" />
         </service>
 
-        <service id="be_simple_i18n_routing.translator.translation" class="%be_simple_i18n_routing.translator.translation.class%" public="false">
+        <service id="geneanet_i18n_routing.translator.translation" class="%geneanet_i18n_routing.translator.translation.class%" public="false">
             <argument type="service" id="translator" />
         </service>
     </services>
