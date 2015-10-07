@@ -2,14 +2,15 @@
 
 namespace Geneanet\I18nRoutingBundle\Routing;
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Matcher\RequestMatcherInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Geneanet\I18nRoutingBundle\Routing\Translator\AttributeTranslatorInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\Exception\MissingMandatoryParametersException;
 use Symfony\Component\Routing\RequestContext;
 
-class Router implements RouterInterface
+class Router implements RouterInterface, RequestMatcherInterface
 {
     /**
      * @var AttributeTranslatorInterface
@@ -95,13 +96,8 @@ class Router implements RouterInterface
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function match($pathinfo)
+    protected function processMatch($match)
     {
-        $match = $this->router->match($pathinfo);
-
         // if a _locale parameter isset remove the .locale suffix that is appended to each route in I18nRoute
         if (!empty($match['_locale']) && preg_match('#^(.+)\.'.preg_quote($match['_locale'], '#').'+$#', $match['_route'], $route)) {
             $match['_route'] = $route[1];
@@ -117,6 +113,28 @@ class Router implements RouterInterface
         }
 
         return $match;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function match($pathinfo)
+    {
+        $this->processMatch($this->router->match($pathinfo));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function matchRequest(Request $request)
+    {
+        if ($this->router instanceof RequestMatcherInterface) {
+            $match = $this->router->matchRequest($request);
+        } else {
+            $match = $this->router->match($request->getPathInfo());
+        }
+
+        return $this->processMatch($match);
     }
 
     public function getRouteCollection()

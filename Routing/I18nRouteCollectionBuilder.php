@@ -22,15 +22,16 @@ class I18nRouteCollectionBuilder
      * @param  string          $host             The host pattern to match
      * @param  string|array    $schemes          A required URI scheme or an array of restricted schemes
      * @param  string|array    $methods          A required HTTP method or an array of restricted methods
+     * @param  string          $condition        A condition that should evaluate to true for the route to match
      * @return RouteCollection
      */
-    public function buildCollection($name, array $localesWithPaths, array $defaults = array(), array $requirements = array(), array $options = array(), $host = '', $schemes = array(), $methods = array())
+    public function buildCollection($name, array $localesWithPaths, array $defaults = array(), array $requirements = array(), array $options = array(), $host = '', $schemes = array(), $methods = array(), $condition = '')
     {
         $collection = new RouteCollection();
         foreach ($localesWithPaths as $locale => $path) {
             $defaults['_locale'] = $locale;
 
-            $collection->add($name.'.'.$locale, new Route($path, $defaults, $requirements, $options, $host, $schemes, $methods));
+            $collection->add($name.'.'.$locale, new Route($path, $defaults, $requirements, $options, $host, $schemes, $methods, $condition));
         }
 
         return $collection;
