@@ -21,7 +21,7 @@ use Symfony\Component\Config\Util\XmlUtils;
  */
 class XmlFileLoader extends BaseXmlFileLoader
 {
-    const NAMESPACE_URI = 'http://geneanet.org/schema/i18n_routing';
+    const NAMESPACE_URI = 'http://www.geneanet.org/schema/i18n_routing';
 
     /**
      * @var I18nRouteCollectionBuilder

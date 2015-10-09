@@ -120,7 +120,7 @@ class Router implements RouterInterface, RequestMatcherInterface
      */
     public function match($pathinfo)
     {
-        $this->processMatch($this->router->match($pathinfo));
+        return $this->processMatch($this->router->match($pathinfo));
     }
 
     /**

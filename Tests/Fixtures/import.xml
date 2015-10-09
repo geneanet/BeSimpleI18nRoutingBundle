@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<routes xmlns="http://geneanet.org/schema/i18n_routing"
+<routes xmlns="http://www.geneanet.org/schema/i18n_routing"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://geneanet.org/schema/i18n_routing http://geneanet.org/schema/i18n_routing/routing-1.0.xsd">
+    xsi:schemaLocation="http://www.geneanet.org/schema/i18n_routing http://www.geneanet.org/schema/i18n_routing/routing-1.0.xsd">
 
     <import resource="basic_i18n_route.xml" type="geneanet_i18n" />
     <import resource="basic_routes.xml" type="geneanet_i18n" />

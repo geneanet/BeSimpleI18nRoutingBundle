@@ -101,9 +101,9 @@ homepage:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<routes xmlns="http://geneanet.org/schema/i18n_routing"
+<routes xmlns="http://www.geneanet.org/schema/i18n_routing"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://geneanet.org/schema/i18n_routing http://geneanet.org/schema/i18n_routing/routing-1.0.xsd">
+    xsi:schemaLocation="http://www.geneanet.org/schema/i18n_routing http://www.geneanet.org/schema/i18n_routing/routing-1.0.xsd">
 
     <route id="homepage">
         <locale key="en">/welcome</locale>
@@ -115,7 +115,7 @@ homepage:
 ```
 
 Note that the XML file uses a different namespace than when using the core
-loader: ``http://geneanet.org/schema/i18n_routing``.
+loader: ``http://www.geneanet.org/schema/i18n_routing``.
 
 ### PHP routing file
 
@@ -154,9 +154,9 @@ welcome:
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<routes xmlns="http://geneanet.org/schema/i18n_routing"
+<routes xmlns="http://www.geneanet.org/schema/i18n_routing"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://geneanet.org/schema/i18n_routing http://geneanet.org/schema/i18n_routing/routing-1.0.xsd">
+    xsi:schemaLocation="http://www.geneanet.org/schema/i18n_routing http://www.geneanet.org/schema/i18n_routing/routing-1.0.xsd">
 
     <route id="hello" pattern="/hello/{name}">
         <default key="_controller">HelloBundle:Hello:index</default>
