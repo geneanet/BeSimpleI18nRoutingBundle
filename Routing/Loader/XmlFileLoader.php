@@ -96,8 +96,10 @@ class XmlFileLoader extends BaseXmlFileLoader
      */
     protected function parseRoute(RouteCollection $collection, \DOMElement $node, $path)
     {
-        if ('' === ($id = $node->getAttribute('id')) || (!$node->hasAttribute('pattern') && !$node->hasAttribute('path'))) {
-            throw new \InvalidArgumentException(sprintf('The <route> element in file "%s" must have an "id" and a "path" attribute.', $path));
+        list($defaults, $requirements, $options, $condition, $localesWithPaths) = $this->parseConfigs($node, $path);
+
+        if ('' === ($id = $node->getAttribute('id')) || (!$node->hasAttribute('pattern') && !$node->hasAttribute('path') && !$localesWithPaths)) {
+            throw new \InvalidArgumentException(sprintf('The <route> element in file "%s" must have an "id" and a "path" attribute or at least one "locale" element.', $path));
         }
 
         if ($node->hasAttribute('pattern')) {
@@ -113,8 +115,6 @@ class XmlFileLoader extends BaseXmlFileLoader
 
         $schemes = preg_split('/[\s,\|]++/', $node->getAttribute('schemes'), -1, PREG_SPLIT_NO_EMPTY);
         $methods = preg_split('/[\s,\|]++/', $node->getAttribute('methods'), -1, PREG_SPLIT_NO_EMPTY);
-
-        list($defaults, $requirements, $options, $condition, $localesWithPaths) = $this->parseConfigs($node, $path);
 
         if (isset($requirements['_method'])) {
             if (0 === count($methods)) {
@@ -183,6 +183,14 @@ class XmlFileLoader extends BaseXmlFileLoader
         $subCollection->addOptions($options);
 
         $collection->addCollection($subCollection);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function loadFile($file)
+    {
+        return XmlUtils::loadFile($file, __DIR__.static::SCHEME_PATH);
     }
 
     /**
