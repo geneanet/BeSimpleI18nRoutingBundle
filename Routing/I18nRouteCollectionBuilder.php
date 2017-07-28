@@ -7,6 +7,9 @@ use Symfony\Component\Routing\RouteCollection;
 
 class I18nRouteCollectionBuilder
 {
+    const LOCALE_PARAM = '_locale';
+    const LOCALES_PARAM = '_locales';
+
     /**
      * buildCollection.
      *
@@ -28,12 +31,37 @@ class I18nRouteCollectionBuilder
     public function buildCollection($name, array $localesWithPaths, array $defaults = array(), array $requirements = array(), array $options = array(), $host = '', $schemes = array(), $methods = array(), $condition = '')
     {
         $collection = new RouteCollection();
-        foreach ($localesWithPaths as $locale => $path) {
-            $defaults['_locale'] = $locale;
 
-            $collection->add($name.'.'.$locale, new Route($path, $defaults, $requirements, $options, $host, $schemes, $methods, $condition));
-        }
+        $pathsWithLocales = $this->buildPathsWithLocales($localesWithPaths);
+
+        foreach ($pathsWithLocales as $path => $locales) {
+             foreach ($locales as $locale) {
+                 $localeRoute = new Route($path, $defaults, $requirements, $options, $host, $schemes, $methods, $condition);
+                 $localeRoute->setDefault(self::LOCALE_PARAM, $locale);
+                 if (count($locales) > 1) {
+                     $localeRoute->setDefault(self::LOCALES_PARAM, $locales);
+                 }
+
+                 $collection->add($name.'.'.$locale, $localeRoute);
+             }
+         }
 
         return $collection;
+    }
+
+    /**
+     * @param array $localesWithPaths
+     *
+     * @return array
+     */
+    protected function buildPathsWithLocales(array $localesWithPaths)
+    {
+        $pathsWithLocales = array();
+
+        foreach ($localesWithPaths as $locale => $path) {
+            $pathsWithLocales[$path][] = $locale;
+        }
+
+        return $pathsWithLocales;
     }
 }
