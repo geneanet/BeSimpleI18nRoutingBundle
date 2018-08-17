@@ -32,10 +32,11 @@
         }
     ],
     "require": {
-        "symfony/framework-bundle": "~2.6"
+        "symfony/framework-bundle": "~2.6|~3.4.14"
     },
     "require-dev": {
-        "doctrine/dbal": "~2.0"
+        "doctrine/dbal": "~2.0",
+        "phpunit/phpunit": "~4.8.36"
     },
     "suggest": {
         "doctrine/dbal": "~2.0"

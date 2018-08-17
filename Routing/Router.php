@@ -175,7 +175,7 @@ class Router implements RouterInterface, RequestMatcherInterface
      *
      * @throws RouteNotFoundException When the route doesn't exists
      */
-    protected function generateI18n($name, $locale, $parameters, $referenceType)
+    protected function generateI18n($name, $locale, $parameters, $referenceType = self::ABSOLUTE_PATH)
     {
         try {
             return $this->router->generate($name.'.'.$locale, $parameters, $referenceType);
