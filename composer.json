@@ -32,14 +32,20 @@
         }
     ],
     "require": {
-        "symfony/framework-bundle": "~2.6|~3.4.14"
+        "symfony/routing": "~2.6 || ~3.4.14",
+        "symfony/config": "~2.6 || ~3.4.14"
     },
     "require-dev": {
-        "doctrine/dbal": "~2.0",
+        "doctrine/dbal": "~2.2",
+
+        "symfony/dependency-injection": "~2.6 || ~3.4.14",
+        "symfony/http-kernel": "~2.6 || ~3.4.14",
+        "symfony/translation": "~2.6 || ~3.4.14",
+
         "phpunit/phpunit": "~4.8.36"
     },
     "suggest": {
-        "doctrine/dbal": "~2.0"
+        "doctrine/dbal": "~2.2"
     },
     "autoload": {
         "psr-0": { "Geneanet\\I18nRoutingBundle": "" }
