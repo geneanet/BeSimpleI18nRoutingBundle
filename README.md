@@ -324,6 +324,11 @@ geneanet_i18n_routing:
         id: my_attribute_translator
 ```
 
+## Run tests
+
+Run ```vendor/bin/phpunit Tests/```.
+NB : You need to install php-sqlite3.
+
 ## License
 
 This bundle is under the MIT license. See the complete license in the bundle:

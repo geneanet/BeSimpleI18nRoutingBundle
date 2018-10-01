@@ -37,6 +37,10 @@ class GeneanetI18nRoutingExtension extends Extension
 
                 case 'doctrine_dbal':
                     $loader->load('dbal.xml');
+
+                    $def = $container->getDefinition('geneanet_i18n_routing.doctrine_dbal.connection');
+                    $def->setFactory(array(new Reference('doctrine'), 'getConnection'));
+
                     $this->configureCacheDefinition($config['cache'], $container);
                     $container->setAlias('geneanet_i18n_routing.translator', 'geneanet_i18n_routing.translator.doctrine_dbal');
 
