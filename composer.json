@@ -32,15 +32,15 @@
         }
     ],
     "require": {
-        "symfony/routing": "~2.6 || ~3.4.14",
-        "symfony/config": "~2.6 || ~3.4.14"
+        "symfony/routing": "~2.6 || ~3.4.14 || ~4",
+        "symfony/config": "~2.6 || ~3.4.14 || ~4"
     },
     "require-dev": {
         "doctrine/dbal": "~2.2",
 
-        "symfony/dependency-injection": "~2.6 || ~3.4.14",
-        "symfony/http-kernel": "~2.6 || ~3.4.14",
-        "symfony/translation": "~2.6 || ~3.4.14",
+        "symfony/dependency-injection": "~2.6 || ~3.4.14 || ~4",
+        "symfony/http-kernel": "~2.6 || ~3.4.14 || ~4",
+        "symfony/translation": "~2.6 || ~3.4.14 || ~4",
 
         "phpunit/phpunit": "~4.8.36"
     },
