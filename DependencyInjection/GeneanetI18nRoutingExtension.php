@@ -22,7 +22,7 @@ class GeneanetI18nRoutingExtension extends Extension
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('routing.xml');
 
-        $this->addClassesToCompile(array(
+        $this->addAnnotatedClassesToCompile(array(
             'Geneanet\\I18nRoutingBundle\\Routing\\Router',
         ));
 
